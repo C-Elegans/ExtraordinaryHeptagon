@@ -1,0 +1,10 @@
+#version 400
+in vec3 position;
+uniform mat4 rotationMatrix;
+uniform vec2 transformationVector;
+void main(){
+	vec3 newPosition = position + vec3(transformationVector,0.0);
+	float x = cos(newPosition.y) * newPosition.x;
+	float y = sin(newPosition.y) * newPosition.x;
+	gl_Position = vec4(x,y,position.z,1) * rotationMatrix;
+}

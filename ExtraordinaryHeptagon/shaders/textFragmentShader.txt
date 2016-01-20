@@ -1,0 +1,14 @@
+#version 400
+out vec4 color;
+in vec2 pass_texCoords;
+uniform vec3 colorInput;
+uniform vec3 colorChangeVector;
+uniform sampler2D textureInput;
+uniform vec2 letterOffset;
+void main(){
+	vec4 tempColor = texture(textureInput,(pass_texCoords+letterOffset)/ vec2(14.1,8.1));
+	if(tempColor.a < 0.5){
+		discard;
+	}
+	color = vec4(colorInput+colorChangeVector,1);
+}

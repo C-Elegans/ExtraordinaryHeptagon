@@ -1,0 +1,10 @@
+#version 400
+out vec4 pixelColor;
+in vec3 out_color;
+
+uniform vec3 colorInput;
+uniform vec3 colorChangeVector;
+void main(){
+	//color = vec4(out_color,1.0);
+	pixelColor = vec4(out_color*colorInput+colorChangeVector,1);
+}

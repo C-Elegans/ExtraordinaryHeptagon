@@ -1,0 +1,12 @@
+#version 400
+out vec4 color;
+in vec2 pass_texCoords;
+uniform sampler2D textureSampler;
+
+void main(){
+	vec4 tempcolor = texture(textureSampler, pass_texCoords);
+	if(tempcolor.a <0.5){
+		discard;
+	}
+	color = tempcolor;
+}

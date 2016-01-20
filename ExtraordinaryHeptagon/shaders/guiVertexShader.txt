@@ -1,0 +1,12 @@
+#version 400
+in vec3 position;
+in vec2 texCoords;
+out vec2 pass_texCoords;
+uniform mat4 transformationMatrix;
+
+void main(){
+	
+	
+	pass_texCoords = texCoords;
+	gl_Position = vec4(position,1) * transformationMatrix;
+}
